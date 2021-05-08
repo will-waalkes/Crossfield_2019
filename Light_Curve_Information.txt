@@ -1,0 +1,101 @@
+﻿Description of the observations:
+
+
+We acquired ground-based time-series follow-up photometry of a full transit of TOI-736.02 on UTC 2019 June 11, with two separate Las Cumbres Observatory (LCO) 1.0 m telescopes \citep{Brown:2013} at Siding Spring Observatory. We used the {\tt TESS Transit Finder}, which is a customized version of the {\tt Tapir} software package \citep{Jensen:2013}, to schedule photometric time-series follow-up observations. The $4096\times4096$ LCO SINISTRO camera has an image scale of 0$\farcs$389 pixel$^{-1}$ resulting in a $26\arcmin\times26\arcmin$ field of view. One observation in Sloan i$\prime$ band lasted 192 minutes, using 100 second exposure times (92 images). The other observation in Bessel-I band lasted 99 minutes, using 60 second exposures (66 images). The images were calibrated by the standard LCO BANZAI pipeline and the photometric data were extracted using the {\tt AstroImageJ} ({\tt AIJ} software package \citep{Collins:2017}. In both datasets, the target star light curve shows a clear transit detection in a 3.89$\arcs$ radius aperture. The nearest known Gaia DR2 star is $15\arcs$ from TOI-736. The FWHM of the target and nearby stars in the Sloan i$\prime$ observation is $\sim1\farcs4$, so the follow-up aperture is negligibly contaminated by neighboring faint Gaia DR2 stars. The transit signal can be reliably detected with apertures having a radius as small as $1\farcs95$; systematic effects start to dominate the light curve for smaller apertures. We also acquired ground-based time-series follow-up photometry of a full transit of TOI-736.01 on UTC 2019 June 16 from an LCO 1.0 m telescope at the South Africa Astronomical Observatory. The 169 minute observation in Bessel-I band used 60 second exposure times resulting in 114 images. The images were calibrated by the same process described above. The target star has a FWHM of 2.21$\arcs$ and the light curve shows a clear transit detection in a 3.89$\arcs$ radius aperture, indicating that both of the observed planet candidates are transiting the same star.
+
+
+
+
+Analysis
+
+
+LCO transit light curves were fit to a \texttt{BATMAN} \citep{Kreidberg2015} model multiplied by a linear airmass correction model to account for the out-of-transit baseline. MCMC models were run using \textit{emcee} \citep{Foreman-Mackey2013}. The two observations of NLTT 26088b were modeled jointly by fitting for different baselines with a joint transit depth (R$_{\rm{p}}$/R$_{*}$) and mid-transit time (T0). We model only the transit depths and mid-transit times, leaving all other physical parameters set to those derived from the TESS light curve. Limb darkening was calculated using \texttt{LDTK} \citep{Parviainen2015} based on the stellar parameters in this work. We find that the transit parameters are consistent with those calculated from the TESS light curves.
+
+
+Figure Captions:
+
+
+TOI-736.01
+
+
+\textit{Top:} Ground-based photometry of NLTT 26088c’s transit from our LCO 1 m observation along with the best-fit transit model (black line) and 1$\sigma$ uncertainties (red region). The best-fit linear function of airmass has been divided out of the plotted light curve data. \textit{Bottom:} Residuals to the fit, normalized by the errors (i.e., (data$_{i}$-model$_{i}$)/\rm{\sigma_i}).
+
+
+TOI-736.02
+
+
+\textit{Top:} Ground-based photometry of NLTT 26088b’s transit from our two LCO 1 m observations along with the best-fit transit model (black line) and 1$\sigma$ uncertainties (red region). The two different sets of observations are differentiated as blue and gray circles with errorbars. A best-fit linear function of airmass has been divided out of each light curve. \textit{Bottom:} Residuals to the fit, normalized by the errors (i.e., (data$_{i}$-model$_{i}$)/\rm{\sigma_i}).
+
+
+MCMC Results:
+
+
+TOI-736.01
+
+
+Rp/R*= 0.12328 + 0.00231 - 0.00235
+Rp = 2.301 + 0.043 - 0.044 R_Earth
+Mid-Transit Time = 2458651.298073 + 0.000401 - 0.000406
+
+
+TOI-736.02
+
+
+Rp/R*= 0.06243 + 0.00409 - 0.00442
+Rp = 1.165 + 0.076 - 0.083 R_Earth
+Mid-Transit Time = 2458645.944289 + 0.000777 - 0.000667
+
+
+
+
+@ARTICLE{Foreman-Mackey2013,
+   author = {{Foreman-Mackey}, D. and {Hogg}, D.~W. and {Lang}, D. and {Goodman}, J.
+        },
+    title = "{emcee: The MCMC Hammer}",
+  journal = {\pasp},
+archivePrefix = "arXiv",
+   eprint = {1202.3665},
+ primaryClass = "astro-ph.IM",
+     year = 2013,
+    month = mar,
+   volume = 125,
+    pages = {306},
+      doi = {10.1086/670067},
+   adsurl = {https://ui.adsabs.harvard.edu/abs/2013PASP..125..306F},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{2015PASP..127.1161K,
+   author = {{Kreidberg}, L.},
+    title = "{batman: BAsic Transit Model cAlculatioN in Python}",
+  journal = {\pasp},
+archivePrefix = "arXiv",
+   eprint = {1507.08285},
+ primaryClass = "astro-ph.EP",
+     year = 2015,
+    month = nov,
+   volume = 127,
+    pages = {1161},
+      doi = {10.1086/683602},
+   adsurl = {https://ui.adsabs.harvard.edu/abs/2015PASP..127.1161K},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@ARTICLE{Parviainen2015,
+   author = {{Parviainen}, H. and {Aigrain}, S.},
+    title = "{LDTK: Limb Darkening Toolkit}",
+  journal = {\mnras},
+archivePrefix = "arXiv",
+   eprint = {1508.02634},
+ primaryClass = "astro-ph.EP",
+ keywords = {gravitational lensing: micro, methods: numerical, techniques: interferometric, planets and satellites: general, binaries: eclipsing},
+     year = 2015,
+    month = nov,
+   volume = 453,
+    pages = {3821-3826},
+      doi = {10.1093/mnras/stv1857},
+   adsurl = {https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.3821P},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
